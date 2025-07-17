@@ -7,7 +7,9 @@ on:
 env: 
   MONGODB_DB_NAME: gha_demo
 jobs:
+
   test:
+    environment: Testing
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.79wd894.mongodb.net
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}  # ${{ secrets.MONGODB_USERNAME }}  , in this way also we pass secrets.
