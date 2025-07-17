@@ -10,8 +10,8 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.79wd894.mongodb.net
-      MONGODB_USERNAME: vadagamavenkat
-      MONGODB_PASSWORD: d9zGBlRvFnFWUVvs
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}  # ${{ secrets.MONGODB_USERNAME }}  , in this way also we pass secrets.
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}  # ${{ secrets.MONGODB_PASSWORD }} , these are stored in central repo secrets.
       PORT: 8080
 
     runs-on: ubuntu-latest
@@ -38,4 +38,7 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "..."
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
+
+
